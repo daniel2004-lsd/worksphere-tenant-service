@@ -1,0 +1,58 @@
+# ==============================================================================
+# WorkSphere — Service Repository .gitignore
+# Strict Security, Secret Hygiene & Tooling Exclusion
+# ==============================================================================
+
+# 1. Local AI Agent Harnesses & SDD Working Directories (STRICTLY LOCAL)
+.specify/
+.codex/
+.claude/
+.antigravity/
+.gemini/
+
+# 2. Environment Variables & Secret Files (ZERO SECRETS IN GIT)
+*.env
+*.env.*
+!*.env.example
+*.pem
+*.key
+*.pkcs12
+*.pfx
+*.jks
+id_rsa
+id_ed25519
+*.token
+credentials.json
+secrets.yaml
+
+# 3. Maven Build Artifacts
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# 4. Operating System & IDE Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+*.iml
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# 5. Logs and Temporary Files
+*.log
+tmp/
+temp/
