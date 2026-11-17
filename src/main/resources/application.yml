@@ -1,0 +1,48 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: tenant-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tenant_db
+    username: worksphere_admin
+    password: worksphere_secret_password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      pool-name: WorkSphereTenantHikariCP
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+worksphere:
+  rabbitmq:
+    exchange:
+      tenant: worksphere.tenant.events
+  outbox:
+    poll-interval-ms: 3000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
